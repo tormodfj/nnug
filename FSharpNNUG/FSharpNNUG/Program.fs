@@ -1,5 +1,11 @@
 ﻿open System
 
+let num = 5
+//num <- 8
+
+let mutable num2 = 5
+num2 <- 8
+
 let sum a b =
     a + b
 
@@ -31,5 +37,17 @@ Console.WriteLine(countOccurrences list 2)
 open Fibonacci
 
 Console.WriteLine(nthFibonacci 10)
+
+let firstTwentyFibs = 
+    fibonacci
+    |> Seq.take 20
+    |> Seq.fold (fun acc num -> acc + num.ToString() + " ") ""
+    |> printfn "%s"
+
+let sumOfFirstTwentyFibs =
+    fibonacci
+    |> Seq.take 20
+    |> Seq.sum
+    |> printfn "%d"
 
 Console.ReadLine() |> ignore
