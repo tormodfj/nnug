@@ -28,4 +28,8 @@ let countOccurrences list item =
 
 Console.WriteLine(countOccurrences list 2)
 
+open Fibonacci
+
+Console.WriteLine(nthFibonacci 10)
+
 Console.ReadLine() |> ignore
