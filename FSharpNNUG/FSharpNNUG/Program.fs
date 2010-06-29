@@ -1,2 +1,31 @@
-﻿// Learn more about F# at http://fsharp.net
+﻿open System
 
+let sum a b =
+    a + b
+
+Console.WriteLine(sum 5 8)
+//Console.WriteLine(sum "a" "b")
+
+let list = [2;5;8;3;5;2;8;5]
+
+let countFives list =
+    let rec count list acc =
+        match list with
+        | 5 :: tail -> count tail acc+1
+        | head :: tail -> count tail acc
+        | [] -> acc
+    count list 0
+
+Console.WriteLine(countFives list)
+
+let countOccurrences list item =
+    let rec count list item acc =
+        match list with
+        | head :: tail when head = item -> count tail item acc+1
+        | head :: tail -> count tail item acc
+        | [] -> acc
+    count list item 0
+
+Console.WriteLine(countOccurrences list 2)
+
+Console.ReadLine() |> ignore
