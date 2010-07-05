@@ -50,4 +50,8 @@ let sumOfFirstTwentyFibs =
     |> Seq.sum
     |> printfn "%d"
 
+open RomanNumbers
+
+Console.WriteLine(convertToRoman 1990)
+
 Console.ReadLine() |> ignore
