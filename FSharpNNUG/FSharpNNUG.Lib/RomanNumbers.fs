@@ -1,5 +1,7 @@
 ﻿module RomanNumbers
 
+open Comparison
+
 let convertToRoman n =
 
     let steps = [
@@ -17,13 +19,10 @@ let convertToRoman n =
         (900, 999, "CM")
         (1000, 3999, "M") ]
 
-    let (<->) x (a, b) =
-        x >= a && x <= b
-
     let getStep n = 
         try
             steps
-            |> List.filter (fun (a,b,s) -> n <-> (a,b))
+            |> List.filter (fun (a,b,s) -> n |-| (a,b))
             |> List.head 
             |> Some
         with

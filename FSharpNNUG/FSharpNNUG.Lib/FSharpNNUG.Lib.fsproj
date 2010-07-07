@@ -38,6 +38,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparison.fs" />
     <Compile Include="Fibonacci.fs" />
     <Compile Include="RomanNumbers.fs" />
   </ItemGroup>
