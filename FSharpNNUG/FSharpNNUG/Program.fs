@@ -54,4 +54,23 @@ open RomanNumbers
 
 Console.WriteLine(convertToRoman 1990)
 
+[<Measure>]
+type m
+
+[<Measure>]
+type s
+
+[<Measure>]
+type MS = (m/s)
+
+let distance = 500.0<m>
+let timespan = 25.0<s>
+let speed = distance / timespan
+
+let calculateDistance (speed : float<m/s>) (time : float<s>) =
+    speed * time
+
+Console.WriteLine(calculateDistance speed 200.0<s>)
+Console.WriteLine(calculateDistance 10.0<MS> 200.0<s>)
+
 Console.ReadLine() |> ignore
