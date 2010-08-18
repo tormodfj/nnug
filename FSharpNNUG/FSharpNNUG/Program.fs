@@ -55,22 +55,38 @@ open RomanNumbers
 Console.WriteLine(convertToRoman 1990)
 
 [<Measure>]
+type kg
+
+[<Measure>]
 type m
 
 [<Measure>]
 type s
 
 [<Measure>]
-type MS = (m/s)
+type N = kg m / s^2
 
-let distance = 500.0<m>
-let timespan = 25.0<s>
-let speed = distance / timespan
+[<Measure>]
+type Pa = N / m^2
 
-let calculateDistance (speed : float<m/s>) (time : float<s>) =
-    speed * time
+let mass = 5.0<kg>
+let speed = 10.0<m/s>
+let time = 2.0<s>
+let accelleration = speed / time
+let force = mass * accelleration
 
-Console.WriteLine(calculateDistance speed 200.0<s>)
-Console.WriteLine(calculateDistance 10.0<MS> 200.0<s>)
+let calculateAccelleration (force : float<N>) (mass : float<kg>) : float<m/s^2> =
+    force / mass
+
+let calculatePressure (force : float<N>) (area : float<m^2>) : float<Pa> =
+    force / area
+
+let width = 0.3<m>
+let length = 0.5<m>
+let gravity = 9.81<m/s^2>
+
+let pressure = calculatePressure (mass * gravity) (width * length)
+
+Console.WriteLine(pressure)
 
 Console.ReadLine() |> ignore
